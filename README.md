@@ -1,24 +1,92 @@
-﻿# Image Gallery Azure_Blob_storage Educator_Developer_Blog  Repository
+# 🌐 Azure Media Drive
 
- 
-## What is Azure Blob Storage?
-Azure Blob Storage is a Microsoft Azure cloud-based object storage solution. It enables developers to use blobs to store and manage unstructured data such as documents, photos, videos, backups, and logs. Blobs can be grouped together to form containers, providing a scalable and cost-effective method for storing and retrieving massive amounts of data.
+A full-featured, cloud-native media-sharing platform built with **React** and **Azure Blob Storage**. Users can upload, view, and manage images, videos, audios, PDFs, and document files — just like Google Drive.
 
-## Programming Languages for Consuming Azure Blob Storage
--	Users or client applications can access objects in Blob Storage via HTTP/HTTPS, from anywhere in the world. Objects in Blob Storage are accessible via the Azure Storage REST API, Azure PowerShell, Azure CLI, or an Azure Storage client library. Client libraries are available for different languages, including: 
--	JavaScript or (node.js): Utilize the Azure Storage Blob client library for JavaScript to interact with Blob Storage from web applications built with React.js or server frameworks.
--	C#(.Net): Use the Azure SDK for .NET to build .NET-based applications that interact with Blob Storage.
--	Python: The Azure SDK for Python enables Python developers to integrate Blob Storage functionality into their applications.
--	Java, Go, and more: Azure Blob Storage provides SDKs for multiple programming languages, enabling broad language support.
-## Pre-requisites
-1.	Azure subscription, if you’re a student redeem Azure for students else create a free account
-2.	Nodejs installed on your machine.
-3.	VS Code
-## Procedure
-1.	Provision Azure blob storage
-2.	Clone this repo.
-3.	change the values of .env variables to the values from your azure storage account.
-4.	npm install or yarn
-5.	view your live app at http://localhost:5173/
+---
+
+## 🚀 Features
+
+- ✅ Upload files to Azure Blob Storage using SAS tokens
+- ✅ Folder-based file organization
+- ✅ Real-time **upload progress** indicator
+- ✅ Smart file **categorization** (Images, Videos, Audio, Documents)
+- ✅ **Previews** for:
+  - Images (JPG, PNG, GIF)
+  - Videos (MP4, WebM)
+  - Audios (MP3)
+  - Documents (PDF, DOCX, TXT)
+- ✅ Icons for file types (🖼️, 🎬, 🎵, 📄)
+- ✅ Sort files by:
+  - Size (Smallest/Largest)
+  - Upload Date (Newest/Oldest)
+- ✅ Toggle between **grid view** and **list view**
+- ✅ Search bar for filtering files
+- ✅ Download & delete functionality
+
+---
+
+## 🧠 Tech Stack
+
+| Frontend        | Backend         | Cloud Storage        |
+|-----------------|-----------------|-----------------------|
+| React + Vite    | Azure Functions (optional) | Azure Blob Storage   |
+| Tailwind CSS    | GitHub Actions (optional) | Azure Static Web App |
+
+---
+
+## 📂 Folder Structure
+/src
+/components # React UI components
+/functions # Optional Azure Functions backend
+.env # Environment variables (DO NOT COMMIT THIS)
+public/ # Static assets
+
+
+---
+
+## 📦 Getting Started Locally
+
+### 1️⃣ Clone the Repository
+
+
+git clone https://github.com/Csaf111/Cloud-Media.git
+cd Cloud-Media
+
+### 2️⃣ Install Dependencies
+npm install
+
+3️⃣ Configure Environment Variables
+Create a .env file with the following:
+
+env
+Copy
+Edit
+VITE_STORAGE_ACCOUNT=your-storage-account-name
+VITE_STORAGE_SAS=?yourSASToken
+VITE_STORAGE_CONTAINER=your-container-name
+
+4️⃣ Run Locally
+bash
+Copy
+Edit
+npm run dev
+
+☁️ Hosting on Azure
+This app is optimized for Azure Static Web Apps.
+
+You can deploy it directly from GitHub using Azure’s CI/CD or with:
+
+bash
+Copy
+Edit
+npm run build
+
+Then upload /dist folder contents to Azure Static Web App or any static hosting provider.
+
+📸 Demo Preview
+![image](https://github.com/user-attachments/assets/a3c64438-7d38-47b3-a18a-e6c35aa71ce5)
+
+
+
 
 
