@@ -1,92 +1,46 @@
-# 🌐 Azure Media Drive
+# Cloud Media
 
-A full-featured, cloud-native media-sharing platform built with **React** and **Azure Blob Storage**. Users can upload, view, and manage images, videos, audios, PDFs, and document files — just like Google Drive.
+A React and Vite front end paired with an Azure Functions upload service. The project is a portfolio prototype for a media-upload workflow that separates browser UI concerns from server-side upload handling.
 
----
+## Stack
 
-## 🚀 Features
+- React + Vite
+- JavaScript and ESLint
+- Azure Functions (Node.js)
+- Azure-hosted media/storage integration (configured through environment variables)
 
-- ✅ Upload files to Azure Blob Storage using SAS tokens
-- ✅ Folder-based file organization
-- ✅ Real-time **upload progress** indicator
-- ✅ Smart file **categorization** (Images, Videos, Audio, Documents)
-- ✅ **Previews** for:
-  - Images (JPG, PNG, GIF)
-  - Videos (MP4, WebM)
-  - Audios (MP3)
-  - Documents (PDF, DOCX, TXT)
-- ✅ Icons for file types (🖼️, 🎬, 🎵, 📄)
-- ✅ Sort files by:
-  - Size (Smallest/Largest)
-  - Upload Date (Newest/Oldest)
-- ✅ Toggle between **grid view** and **list view**
-- ✅ Search bar for filtering files
-- ✅ Download & delete functionality
+## Architecture
 
----
+```text
+Browser (React/Vite) → Azure Function upload endpoint → configured media/storage provider
+```
 
-## 🧠 Tech Stack
+The UI lives in `src/`; the serverless upload endpoint is under `azure-functions-backend/uploadMedia/`.
 
-| Frontend        | Backend         | Cloud Storage        |
-|-----------------|-----------------|-----------------------|
-| React + Vite    | Azure Functions (optional) | Azure Blob Storage   |
-| Tailwind CSS    | GitHub Actions (optional) | Azure Static Web App |
+## Local setup
 
----
+1. Copy `.env.example` to `.env` and provide local development values.
+2. Install the root dependencies with `npm ci`.
+3. Run the front end with `npm run dev`.
+4. Install and run the Azure Functions project separately from `azure-functions-backend/` using the Azure Functions Core Tools.
 
-## 📂 Folder Structure
-/src
-/components # React UI components
-/functions # Optional Azure Functions backend
-.env # Environment variables (DO NOT COMMIT THIS)
-public/ # Static assets
+Never commit `.env`. Use your host's secret store for deployed values.
 
+## Features
 
----
+- Media-focused React UI
+- Loading-state component
+- Serverless upload endpoint boundary
+- Separate client and function dependency manifests
 
-## 📦 Getting Started Locally
+## Testing and limitations
 
-### 1️⃣ Clone the Repository
+This repository does not yet provide automated tests or CI. Before production use, add component tests, API contract tests for the function, file-size/type validation, rate limiting, upload authorization, and observability. Confirm CORS and storage-provider settings in each environment.
 
+## Security
 
-git clone https://github.com/Csaf111/Cloud-Media.git
-cd Cloud-Media
+See [SECURITY.md](SECURITY.md). Any credential previously committed in the removed `.env` must be rotated.
 
-### 2️⃣ Install Dependencies
-npm install
+## License
 
-3️⃣ Configure Environment Variables
-Create a .env file with the following:
-
-env
-Copy
-Edit
-VITE_STORAGE_ACCOUNT=your-storage-account-name
-VITE_STORAGE_SAS=?yourSASToken
-VITE_STORAGE_CONTAINER=your-container-name
-
-4️⃣ Run Locally
-bash
-Copy
-Edit
-npm run dev
-
-☁️ Hosting on Azure
-This app is optimized for Azure Static Web Apps.
-
-You can deploy it directly from GitHub using Azure’s CI/CD or with:
-
-bash
-Copy
-Edit
-npm run build
-
-Then upload /dist folder contents to Azure Static Web App or any static hosting provider.
-
-📸 Demo Preview
-![image](https://github.com/user-attachments/assets/a3c64438-7d38-47b3-a18a-e6c35aa71ce5)
-
-
-
-
-
+No license has been selected yet.
